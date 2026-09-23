@@ -3,7 +3,7 @@ from PIL import Image, ImageTk  # pip install pillow
 from customer import Cust_Win
 from room import Roombooking
 from details import RoomDetails
-
+from payment import Payment
 
 class HotelManagementSystem:
     def __init__(self, root):
@@ -41,7 +41,7 @@ class HotelManagementSystem:
 
         # ================= Button Frame ==================
         btn_frame = Frame(main_frame, bd=4, relief=RIDGE)
-        btn_frame.place(x=0, y=35, width=228, height=190)
+        btn_frame.place(x=0, y=35, width=228, height=230)
 
         cust_btn = Button(btn_frame, text="CUSTOMER", command=self.cust_details,width=22, font=("times new roman", 14, "bold"), bg="black", fg="gold", bd=0, cursor="hand1")
         cust_btn.grid(row=0, column=0, pady=1)
@@ -52,11 +52,14 @@ class HotelManagementSystem:
         details_btn = Button(btn_frame, text="DETAILS", width=22,command=self.details_room, font=("times new roman", 14, "bold"),bg="black", fg="gold", bd=0, cursor="hand1")
         details_btn.grid(row=2, column=0, pady=1)
 
+        payment_btn = Button(btn_frame, text="PAYMENT", width=22,command=self.payment_details, font=("times new roman", 14, "bold"),bg="black", fg="gold", bd=0, cursor="hand1")
+        payment_btn.grid(row=3, column=0, pady=1)
+
         report_btn = Button(btn_frame, text="REPORT", width=22,font=("times new roman", 14, "bold"),bg="black", fg="gold", bd=0, cursor="hand1")
-        report_btn.grid(row=3, column=0, pady=1)
+        report_btn.grid(row=4, column=0, pady=1)
 
         logout_btn = Button(btn_frame, text="LOGOUT", width=22,font=("times new roman", 14, "bold"),bg="black", fg="gold", bd=0, cursor="hand1")
-        logout_btn.grid(row=4, column=0, pady=1)
+        logout_btn.grid(row=5, column=0, pady=1)
 
         # ================ Right Side Image =================
         img3 = Image.open(r"C:\Users\sanja\OneDrive\Desktop\Hotel Mnagement System\images\san.jpg")
@@ -94,9 +97,9 @@ class HotelManagementSystem:
         self.new_window = Toplevel(self.root)
         self.app = RoomDetails(self.new_window)
 
-    
-
-
+    def payment_details(self):
+        self.new_window = Toplevel(self.root)
+        self.app = Payment(self.new_window)
 if __name__ == "__main__":
     root = Tk()
     obj = HotelManagementSystem(root)

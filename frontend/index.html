@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tara Hotel - Web App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Animated Blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div id="app-container">
+        <!-- LOGIN SCREEN -->
+        <main id="login-view" class="view active">
+            <div class="login-card glass-panel">
+                <h1>Tara Hotel</h1>
+                <p>Welcome back! Sign in to your account</p>
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" id="username" placeholder="Enter email or username">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="password" placeholder="Enter password">
+                </div>
+                <button id="login-btn">Login</button>
+                <p id="login-error" class="error-msg"></p>
+            </div>
+        </main>
+
+        <!-- DASHBOARD SCREEN -->
+        <main id="dashboard-view" class="view">
+            <header>
+                <h2>Tara Hotel Management</h2>
+                <button id="logout-btn" class="glass-panel">Logout</button>
+            </header>
+            <div class="dashboard-grid">
+                <div class="menu-card glass-panel" id="menu-customer">
+                    <h3>Customer</h3>
+                    <p>Manage customer details</p>
+                </div>
+                <div class="menu-card glass-panel" id="menu-room">
+                    <h3>Room</h3>
+                    <p>Book & check availability</p>
+                </div>
+                <div class="menu-card glass-panel" id="menu-details">
+                    <h3>Details</h3>
+                    <p>View room details</p>
+                </div>
+                <div class="menu-card glass-panel" id="menu-payment">
+                    <h3>Payment</h3>
+                    <p>Process transactions</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- CUSTOMER VIEW -->
+        <main id="customer-view" class="view">
+            <header>
+                <h2>Customer Management</h2>
+                <button class="glass-panel back-btn">Back to Dashboard</button>
+            </header>
+            <div class="content-panel glass-panel">
+                <div class="form-section">
+                    <h3>Add New Customer</h3>
+                    <form id="add-customer-form" class="inline-form">
+                        <input type="text" id="cust-ref" placeholder="Ref No." required>
+                        <input type="text" id="cust-name" placeholder="Full Name" required>
+                        <input type="text" id="cust-mother" placeholder="Mother Name">
+                        <select id="cust-gender">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <input type="text" id="cust-postcode" placeholder="Post Code">
+                        <input type="text" id="cust-mobile" placeholder="Mobile No." required>
+                        <input type="email" id="cust-email" placeholder="Email">
+                        <input type="text" id="cust-nationality" placeholder="Nationality">
+                        <select id="cust-idproof">
+                            <option value="AadharCard">AadharCard</option>
+                            <option value="Passport">Passport</option>
+                            <option value="Driving License">Driving License</option>
+                        </select>
+                        <input type="text" id="cust-idnumber" placeholder="ID Number">
+                        <input type="text" id="cust-address" placeholder="Address">
+                        <button type="submit" class="submit-btn" style="grid-column: span 2;">Add Customer</button>
+                    </form>
+                </div>
+                <!-- Customer Table -->
+                <div class="table-container" style="margin-top: 2rem;">
+                    <table class="data-table" id="customer-table">
+                        <thead>
+                            <tr>
+                                <th>Ref</th>
+                                <th>Name</th>
+                                <th>Mother Name</th>
+                                <th>Gender</th>
+                                <th>PostCode</th>
+                                <th>Mobile</th>
+                                <th>Email</th>
+                                <th>Nationality</th>
+                                <th>ID Proof</th>
+                                <th>ID Number</th>
+                                <th>Address</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data will be populated here via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <!-- ROOM VIEW -->
+        <main id="room-view" class="view">
+            <header>
+                <h2>Room Management</h2>
+                <button class="glass-panel back-btn">Back to Dashboard</button>
+            </header>
+            <div class="content-panel glass-panel">
+                <div class="table-container">
+                    <table class="data-table" id="room-table">
+                        <thead>
+                            <tr>
+                                <th>Contact</th>
+                                <th>Check-in</th>
+                                <th>Check-out</th>
+                                <th>Room Type</th>
+                                <th>Room No</th>
+                                <th>Meal</th>
+                                <th>No Of Days</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data will be populated here via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <!-- DETAILS VIEW -->
+        <main id="details-view" class="view">
+            <header>
+                <h2>Room Details</h2>
+                <button class="glass-panel back-btn">Back to Dashboard</button>
+            </header>
+            <div class="content-panel glass-panel">
+                <div class="room-gallery">
+                    <div class="room-card glass-panel">
+                        <img src="../images/room1.jpg" alt="Single Room">
+                        <h4>Single Room</h4>
+                        <p>A cozy standard room for solo travelers.</p>
+                    </div>
+                    <div class="room-card glass-panel">
+                        <img src="../images/room2.jpg" alt="Double Room">
+                        <h4>Double Room</h4>
+                        <p>Comfortable twin bedding for couples or friends.</p>
+                    </div>
+                    <div class="room-card glass-panel">
+                        <img src="../images/room3.jpg" alt="Luxury Room">
+                        <h4>Luxury Room</h4>
+                        <p>Premium suite featuring advanced amenities and scenic views.</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Available Rooms Data</h3>
+                <div class="table-container">
+                    <table class="data-table" id="details-table">
+                        <thead>
+                            <tr>
+                                <th>Floor</th>
+                                <th>Room No</th>
+                                <th>Room Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data populated via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <!-- PAYMENT VIEW -->
+        <main id="payment-view" class="view">
+            <header>
+                <h2>Payment Processing</h2>
+                <button class="glass-panel back-btn">Back to Dashboard</button>
+            </header>
+            <div class="content-panel glass-panel">
+                <div class="form-section">
+                    <h3>Process Payment</h3>
+                    <form id="payment-form" class="inline-form" style="grid-template-columns: 1fr 1fr;">
+                        <div class="input-group">
+                            <label>Contact Number (Fetch Bill)</label>
+                            <input type="text" id="pay-contact" placeholder="Enter Contact No." required style="width: 70%; display: inline-block;">
+                            <button type="button" id="btn-fetch-bill" style="width: 25%; display: inline-block; padding: 0.8rem; font-size: 0.9rem;">Fetch</button>
+                        </div>
+                        <div class="input-group">
+                            <label>Customer Name</label>
+                            <input type="text" id="pay-name" readonly>
+                        </div>
+                        <div class="input-group">
+                            <label>Room No.</label>
+                            <input type="text" id="pay-roomno" readonly>
+                        </div>
+                        <div class="input-group">
+                            <label>Total Bill Amount</label>
+                            <input type="text" id="pay-total" readonly>
+                        </div>
+                        <div class="input-group">
+                            <label>Payment Method</label>
+                            <select id="pay-method" style="width: 100%; padding: 1rem; border-radius: 12px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); color: white;">
+                                <option style="color: black" value="Cash">Cash</option>
+                                <option style="color: black" value="Credit Card">Credit Card</option>
+                                <option style="color: black" value="UPI">UPI</option>
+                                <option style="color: black" value="Debit Card">Debit Card</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Amount Paid</label>
+                            <input type="number" id="pay-amount" required>
+                        </div>
+                        <button type="submit" class="submit-btn" style="grid-column: span 2;">Pay & Save</button>
+                    </form>
+                </div>
+
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Payment Transactions</h3>
+                <div class="table-container">
+                    <table class="data-table" id="payment-table">
+                        <thead>
+                            <tr>
+                                <th>Contact</th>
+                                <th>Name</th>
+                                <th>Room No</th>
+                                <th>Total Amount</th>
+                                <th>Method</th>
+                                <th>Amount Paid</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Populate via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
